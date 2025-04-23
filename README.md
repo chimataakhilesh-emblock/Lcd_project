@@ -16,4 +16,3 @@ This project implements a custom LCD driver for controlling a 16x2 character LCD
 
 ---
 
-## 🧱 Folder Structure

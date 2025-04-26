@@ -56,6 +56,7 @@ How Scrolling Works
 
 Sending the command 0x18 (Shift Display Left) to LCD again and again after a small delay.
 
+
 This makes the displayed text move left smoothly.
 
 ---
@@ -65,3 +66,7 @@ Summary
 We built a simple LCD driver in 4-bit mode, printed a name, and added a smooth scrolling effect using basic LCD commands!
 
 ---
+
+output image and video
+
+![WhatsApp Image 2025-04-26 at 12 22 21_9db73334](https://github.com/user-attachments/assets/4ce3db16-bde3-4228-96f8-7b14ebc62e19)

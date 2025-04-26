@@ -2,7 +2,7 @@
 #include "freertos/task.h"
 #include "driver/gpio.h"
 
-// Define LCD control pins
+// Define LCD control pins 
 #define LCD_RS     GPIO_NUM_4
 #define LCD_EN     GPIO_NUM_5
 #define LCD_D4     GPIO_NUM_18
@@ -22,11 +22,11 @@ void lcd_send_nibble(uint8_t nibble) {
     gpio_set_level(LCD_D6, (nibble >> 2) & 0x01);
     gpio_set_level(LCD_D7, (nibble >> 3) & 0x01);
 
-    // Pulse EN pin to send data
-    gpio_set_level(LCD_EN, 1);  // Set EN high
-    lcd_delay_ms(1);  // Wait for a short time
-    gpio_set_level(LCD_EN, 0);  // Set EN low
-    lcd_delay_ms(1);  // Wait for a short time
+    // Pulse ENABLE pin to send data
+    gpio_set_level(LCD_EN, 1);  // Set ENABLE PIN high
+    lcd_delay_ms(1);  
+    gpio_set_level(LCD_EN, 0);  // Set ENABLE  low
+    lcd_delay_ms(1);  
 }
 
 // Send a full byte (2 nibbles) to LCD
@@ -39,9 +39,9 @@ void lcd_send_byte(uint8_t byte, bool is_data) {
     lcd_delay_ms(10);  // Wait for the LCD to process
 }
 
-// Initialize LCD
+// Initialize LCD 
 void lcd_init() {
-    // Set GPIO pins as output
+    // Setting LCD PINs Mode
     gpio_set_direction(LCD_RS, GPIO_MODE_OUTPUT);
     gpio_set_direction(LCD_EN, GPIO_MODE_OUTPUT);
     gpio_set_direction(LCD_D4, GPIO_MODE_OUTPUT);
@@ -49,7 +49,7 @@ void lcd_init() {
     gpio_set_direction(LCD_D6, GPIO_MODE_OUTPUT);
     gpio_set_direction(LCD_D7, GPIO_MODE_OUTPUT);
 
-    lcd_delay_ms(20);  // Wait for power to stabilize
+    lcd_delay_ms(20);  
 
     // LCD initialization sequence
     lcd_send_nibble(0x03);  // Function set
@@ -82,7 +82,7 @@ void lcd_write_string(const char* str) {
         lcd_write_char(*str++);
     }
 }
-
+// Write a command to LCD
 void lcd_write_command(uint8_t cmd)
 {
     lcd_send_byte(cmd, false);
